@@ -31,15 +31,6 @@ We are working on various aspects of C# including object-oriented principles, da
 | **Common Methods**      | `Replace()`, `Substring()`, `ToUpper()`            | `Append()`, `Insert()`, `Replace()`, `Remove()`    |
 | **Declaration Example** | `string s = "Hello";`                              | `StringBuilder sb = new StringBuilder("Hello");`   |
 
----
-
-### 🔤 Code Example: `String`
-```csharp
-string message = "Hello";
-message += " World"; // Creates a new string in memory
-Console.WriteLine(message); // Output: Hello World
-
-
 # ASP.NET & ASP.NET MVC
 MVC here — covering routing, controllers, views, model binding, filters, and Razor syntax for dynamic web applications.
 
