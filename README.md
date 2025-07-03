@@ -18,7 +18,8 @@
 
 # C# Programming
 We are working on various aspects of C# including object-oriented principles, data types, collections, exception handling, async programming, and more.
-## 🆚 Difference Between `String` and `StringBuilder`
+
+🆚 Difference Between `String` and `StringBuilder`
 
 | Feature                 | `String`                                           | `StringBuilder`                                    |
 |-------------------------|----------------------------------------------------|----------------------------------------------------|
