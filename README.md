@@ -18,6 +18,27 @@
 
 # C# Programming
 We are working on various aspects of C# including object-oriented principles, data types, collections, exception handling, async programming, and more.
+## 🆚 Difference Between `String` and `StringBuilder`
+
+| Feature                 | `String`                                           | `StringBuilder`                                    |
+|-------------------------|----------------------------------------------------|----------------------------------------------------|
+| **Namespace**           | `System`                                           | `System.Text`                                      |
+| **Mutability**          | Immutable – every modification creates a new string | Mutable – changes the same object in memory        |
+| **Performance (Concat)**| Slower for repeated modifications (e.g., in loops) | Faster for multiple string operations              |
+| **Memory Usage**        | Higher (due to new string instances)               | Lower (reuses same memory buffer)                  |
+| **Thread Safety**       | Thread-safe (immutable by nature)                  | Not thread-safe by default                         |
+| **Use Case**            | Best for a small number of changes                 | Best for frequent or large string manipulations    |
+| **Common Methods**      | `Replace()`, `Substring()`, `ToUpper()`            | `Append()`, `Insert()`, `Replace()`, `Remove()`    |
+| **Declaration Example** | `string s = "Hello";`                              | `StringBuilder sb = new StringBuilder("Hello");`   |
+
+---
+
+### 🔤 Code Example: `String`
+```csharp
+string message = "Hello";
+message += " World"; // Creates a new string in memory
+Console.WriteLine(message); // Output: Hello World
+
 
 # ASP.NET & ASP.NET MVC
 MVC here — covering routing, controllers, views, model binding, filters, and Razor syntax for dynamic web applications.
