@@ -19,6 +19,26 @@
 # C# Programming
 We are working on various aspects of C# including object-oriented principles, data types, collections, exception handling, async programming, and more.
 
+🆚 .NET Core vs .NET Framework Comparison
+
+| **Aspect**                       | **.NET Core / .NET (5+)**                                                | **.NET Framework**                              |
+| -------------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------- |
+| **Cross-platform apps**          | ✅ Yes – Windows, Linux, macOS                                            | ❌ No – Windows only                             |
+| **Web Development**              | ASP.NET Core (MVC, Razor Pages, Blazor)                                  | ASP.NET (System.Web, Web Forms, MVC)            |
+| **Desktop Apps**                 | ✅ WPF & WinForms (Windows only since .NET Core 3.0)                      | ✅ WPF & WinForms (Windows only)                 |
+| **Microservices**                | ✅ Excellent – lightweight, container-friendly                            | ❌ Not suitable – heavy, monolithic              |
+| **Cloud Support**                | ✅ First-class Azure support, ideal for containers & serverless           | ⚠️ Limited, older integration                   |
+| **CLI Tools**                    | ✅ Modern unified CLI (`dotnet`)                                          | ❌ Legacy MSBuild/Visual Studio-only             |
+| **Side-by-side Versioning**      | ✅ Supported – apps can run different versions on the same machine        | ❌ Global install affects all apps               |
+| **Package Management**           | ✅ NuGet + better dependency resolution                                   | ✅ NuGet                                         |
+| **Third-party Support**          | ✅ Growing and modern (e.g., gRPC, Minimal APIs)                          | ⚠️ Mature but stagnating                        |
+| **Long-term Viability**          | ✅ Active development (.NET 8+ and beyond)                                | ❌ Maintenance mode (only .NET Framework 4.8+)   |
+| **Performance for Static Sites** | ✅ Lightweight and fast for generating static sites pre-deployment        | ❌ Not suitable – too heavy for static workflows |
+| **Deployment Style**             | ✅ Self-contained, cross-platform publishing                              | ❌ Requires Windows IIS hosting                  |
+| **Open Source**                  | ✅ Fully open-source under .NET Foundation                                | ⚠️ Partially open-source (limited components)   |
+| **Learning Curve (Modern Dev)**  | ✅ Aligned with modern dev practices (DevOps, containers, CI/CD)          | ❌ More legacy concepts and tooling              |
+
+
 🆚 Difference Between `String` and `StringBuilder`
 
 | Feature                 | `String`                                           | `StringBuilder`                                    |
