@@ -19,7 +19,7 @@
 # C# Programming
 We are working on various aspects of C# including object-oriented principles, data types, collections, exception handling, async programming, and more.
 
-🆚 .NET Core vs .NET Framework Comparison
+🔍 🆚 .NET Core vs .NET Framework Comparison
 
 | **Aspect**                       | **.NET Core / .NET (5+)**                                                | **.NET Framework**                              |
 | -------------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------- |
@@ -39,7 +39,7 @@ We are working on various aspects of C# including object-oriented principles, da
 | **Learning Curve (Modern Dev)**  | ✅ Aligned with modern dev practices (DevOps, containers, CI/CD)          | ❌ More legacy concepts and tooling              |
 
 
-🆚 Difference Between `String` and `StringBuilder`
+🔍 🆚 Difference Between `String` and `StringBuilder`
 
 | Feature                 | `String`                                           | `StringBuilder`                                    |
 |-------------------------|----------------------------------------------------|----------------------------------------------------|
