@@ -59,7 +59,7 @@ There are a few different ways to build a website using Beautiful Jekyll, and th
 Even if you choose to use one of the [advanced installation methods](https://beautifuljekyll.com/getstarted/#install-steps-hard), I still suggest you read through the easy method first.
 
 
-1. What is the difference between == and .Equals() in C#?
+# What is the difference between == and .Equals() in C#?
 
 Trick: Many think they're the same.
 
@@ -76,7 +76,7 @@ Console.WriteLine(a == b);       // True
 Console.WriteLine(a.Equals(b));  // True
 Console.WriteLine(ReferenceEquals(a, b)); // False
 
-2. What will this output?
+# What will this output?
 
 class A
 {
@@ -99,15 +99,15 @@ Output:
 null
 Because Print() is called from base constructor, and message is not yet set.
 
-3. Can a constructor be virtual in C#?
+# Can a constructor be virtual in C#?
 Answer:
 No. Constructors cannot be virtual, abstract, or override.
 
-4. Can you override a static method in C#?
+# Can you override a static method in C#?
 Answer:
 No. Static methods belong to the type, not an instance — hence, they cannot be overridden.
 
-5. What is the output of this code?
+# What is the output of this code?
 
 int a = 5;
 object o = a;
