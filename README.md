@@ -19,7 +19,7 @@
 # C# Programming
 
 
-🔍 🆚 .NET Core vs .NET Framework Comparison
+## 🔍 🆚 .NET Core vs .NET Framework Comparison
 
 | **Aspect**                       | **.NET Core / .NET (5+)**                                                | **.NET Framework**                              |
 | -------------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------- |
@@ -39,7 +39,7 @@
 | **Learning Curve (Modern Dev)**  | ✅ Aligned with modern dev practices (DevOps, containers, CI/CD)          | ❌ More legacy concepts and tooling              |
 
 
-🔍 🆚 Difference Between `String` and `StringBuilder`
+## 🔍 🆚 Difference Between `String` and `StringBuilder`
 
 | Feature                 | `String`                                           | `StringBuilder`                                    |
 |-------------------------|----------------------------------------------------|----------------------------------------------------|
@@ -52,18 +52,9 @@
 | **Common Methods**      | `Replace()`, `Substring()`, `ToUpper()`            | `Append()`, `Insert()`, `Replace()`, `Remove()`    |
 | **Declaration Example** | `string s = "Hello";`                              | `StringBuilder sb = new StringBuilder("Hello");`   |
 
-# Build your website in 3 steps
-
-There are a few different ways to build a website using Beautiful Jekyll, and this document will go through the simplest one: using a fork on GitHub. For most people (including myself!), this easy method is the recommended one.
-
-Even if you choose to use one of the [advanced installation methods](https://beautifuljekyll.com/getstarted/#install-steps-hard), I still suggest you read through the easy method first.
-
-
 ## What is the difference between == and .Equals() in C#?
 
 Trick: Many think they're the same.
-
-Answer:
 
 == checks reference equality for reference types (unless overridden).
 
@@ -99,15 +90,15 @@ Output:
 null
 Because Print() is called from base constructor, and message is not yet set.
 
-# Can a constructor be virtual in C#?
+## Can a constructor be virtual in C#?
 Answer:
 No. Constructors cannot be virtual, abstract, or override.
 
-# Can you override a static method in C#?
+## Can you override a static method in C#?
 Answer:
 No. Static methods belong to the type, not an instance — hence, they cannot be overridden.
 
-# What is the output of this code?
+## What is the output of this code?
 
 int a = 5;
 object o = a;
@@ -116,29 +107,27 @@ Console.WriteLine(o);
 Answer:
 5 — Because o is boxed with value 5, and a is modified afterward.
 
-6. What's the difference between ref, out, and in parameters?
+## What's the difference between ref, out, and in parameters?
 Keyword	Must be initialized before passing?	Can be modified inside method?	Must be assigned in method?
 ref	Yes	Yes	No
 out	No	Yes	Yes
 in	Yes	No	No
 
-7. Is string a reference type or value type? Can it behave like a value type?
+## Is string a reference type or value type? Can it behave like a value type?
 Answer:
 
 string is a reference type.
 
 But it behaves like a value type due to immutability (any change creates a new object).
 
-8. What is the difference between abstract class and interface in C# 8+?
+## What is the difference between abstract class and interface in C# 8+?
 Trick: Interfaces can now have default implementations.
-
-Answer:
 
 Abstract classes can have fields, constructors.
 
 Interfaces (C# 8+) can have default implementations, but no state (no instance fields).
 
-9. Can finally block be skipped in any case?
+## Can finally block be skipped in any case?
 Answer:
 Yes, if:
 
@@ -148,7 +137,7 @@ Hardware failure/power off.
 
 Infinite loop or Thread.Abort() in legacy code.
 
-10. What's the output?
+## What's the output?
 
 string x = null;
 Console.WriteLine(x?.Length ?? -1);
@@ -156,8 +145,8 @@ Answer:
 -1 — Safe navigation ?. avoids exception, and null-coalescing operator provides a fallback.
 
 
-⚡ Tricky LINQ Questions
-1. What will this output?
+#⚡ Tricky LINQ Questions
+## What will this output?
 
 var numbers = new List<int> { 1, 2, 3, 4, 5 };
 var query = numbers.Where(n => n % 2 == 0);
@@ -176,7 +165,7 @@ Answer:
 Why?
 Because LINQ uses deferred execution. The Where clause is not executed until the enumeration (foreach) happens.
 
-2. Difference between First() and FirstOrDefault()? What happens if the sequence is empty?
+## Difference between First() and FirstOrDefault()? What happens if the sequence is empty?
 First() throws InvalidOperationException if no elements.
 
 FirstOrDefault() returns default value (null for reference types, 0 for int, etc.).
