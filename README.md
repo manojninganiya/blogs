@@ -17,7 +17,7 @@
 - [MySQL](#mysql)
 
 # C# Programming
-We are working on various aspects of C# including object-oriented principles, data types, collections, exception handling, async programming, and more.
+
 
 🔍 🆚 .NET Core vs .NET Framework Comparison
 
@@ -52,12 +52,11 @@ We are working on various aspects of C# including object-oriented principles, da
 | **Common Methods**      | `Replace()`, `Substring()`, `ToUpper()`            | `Append()`, `Insert()`, `Replace()`, `Remove()`    |
 | **Declaration Example** | `string s = "Hello";`                              | `StringBuilder sb = new StringBuilder("Hello");`   |
 
-# Project Title
-## Installation
-### Step 1: Clone the repo
-### Step 2: Install dependencies
-## Usage
-### Example 1
+# Build your website in 3 steps
+
+There are a few different ways to build a website using Beautiful Jekyll, and this document will go through the simplest one: using a fork on GitHub. For most people (including myself!), this easy method is the recommended one.
+
+Even if you choose to use one of the [advanced installation methods](https://beautifuljekyll.com/getstarted/#install-steps-hard), I still suggest you read through the easy method first.
 
 
 1. What is the difference between == and .Equals() in C#?
