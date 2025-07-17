@@ -1030,6 +1030,8 @@ Frontend development with Angular, covering components, services, routing, modul
 # MS SQL Server
 Working with Microsoft SQL Server — schema design, stored procedures, triggers, indexing, views, and performance optimization.
 
+
+
 # MySQL
 Using MySQL with .NET applications. Topics include database creation, querying, relationships, foreign keys, and connection from C#.
 
