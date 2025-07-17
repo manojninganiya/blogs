@@ -60,12 +60,13 @@ Trick: Many think they're the same.
 
 .Equals() checks value equality (can be overridden for custom logic).
 
-
+```
 string a = "hello";
 string b = String.Copy(a);
 Console.WriteLine(a == b);       // True
 Console.WriteLine(a.Equals(b));  // True
 Console.WriteLine(ReferenceEquals(a, b)); // False
+```
 
 ## What will this output?
 
