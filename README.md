@@ -59,7 +59,7 @@ There are a few different ways to build a website using Beautiful Jekyll, and th
 Even if you choose to use one of the [advanced installation methods](https://beautifuljekyll.com/getstarted/#install-steps-hard), I still suggest you read through the easy method first.
 
 
-# What is the difference between == and .Equals() in C#?
+## What is the difference between == and .Equals() in C#?
 
 Trick: Many think they're the same.
 
@@ -76,7 +76,7 @@ Console.WriteLine(a == b);       // True
 Console.WriteLine(a.Equals(b));  // True
 Console.WriteLine(ReferenceEquals(a, b)); // False
 
-# What will this output?
+## What will this output?
 
 class A
 {
