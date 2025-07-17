@@ -135,7 +135,7 @@ Abstract classes can have fields, constructors.
 Interfaces (C# 8+) can have default implementations, but no state (no instance fields).
 
 ## Can finally block be skipped in any case?
-Answer:
+
 Yes, if:
 
 The process is terminated (Environment.Exit or a crash).
@@ -146,15 +146,17 @@ Infinite loop or Thread.Abort() in legacy code.
 
 ## What's the output?
 
+```
 string x = null;
 Console.WriteLine(x?.Length ?? -1);
-Answer:
+```
+
 -1 — Safe navigation ?. avoids exception, and null-coalescing operator provides a fallback.
 
 
 #⚡ Tricky LINQ Questions
 ## What will this output?
-
+```
 var numbers = new List<int> { 1, 2, 3, 4, 5 };
 var query = numbers.Where(n => n % 2 == 0);
 
@@ -164,7 +166,7 @@ foreach (var n in query)
 {
     Console.WriteLine(n);
 }
-Answer:
+```
 
 2
 4
@@ -177,10 +179,10 @@ First() throws InvalidOperationException if no elements.
 
 FirstOrDefault() returns default value (null for reference types, 0 for int, etc.).
 
-3. Can you write a LINQ query that groups items and projects a custom result per group?
+## Can you write a LINQ query that groups items and projects a custom result per group?
 Yes (Example):
 
-
+```
 var people = new[]
 {
     new { Name = "Alice", Age = 30 },
@@ -196,6 +198,7 @@ foreach (var group in grouped)
 4. What's wrong with this LINQ code?
 
 var result = someList.Select(async item => await SomeAsyncMethod(item)).ToList();
+```
 Trick: Looks fine, but it doesn't do what people expect.
 
 Answer:
