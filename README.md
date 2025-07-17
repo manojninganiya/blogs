@@ -52,6 +52,14 @@ We are working on various aspects of C# including object-oriented principles, da
 | **Common Methods**      | `Replace()`, `Substring()`, `ToUpper()`            | `Append()`, `Insert()`, `Replace()`, `Remove()`    |
 | **Declaration Example** | `string s = "Hello";`                              | `StringBuilder sb = new StringBuilder("Hello");`   |
 
+# Project Title
+## Installation
+### Step 1: Clone the repo
+### Step 2: Install dependencies
+## Usage
+### Example 1
+
+
 1. What is the difference between == and .Equals() in C#?
 
 Trick: Many think they're the same.
