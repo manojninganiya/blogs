@@ -173,7 +173,7 @@ foreach (var n in query)
 4  
 6  
 
-Why?
+Why?  
 Because LINQ uses deferred execution. The Where clause is not executed until the enumeration (foreach) happens.
 
 ## Difference between First() and FirstOrDefault()? What happens if the sequence is empty?
