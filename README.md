@@ -154,7 +154,7 @@ Console.WriteLine(x?.Length ?? -1);
 -1 — Safe navigation ?. avoids exception, and null-coalescing operator provides a fallback.
 
 
-# ⚡ Tricky LINQ Questions
+## ⚡ Tricky LINQ Questions
 ## What will this output?
 ```
 var numbers = new List<int> { 1, 2, 3, 4, 5 };
