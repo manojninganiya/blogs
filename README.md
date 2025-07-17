@@ -197,20 +197,23 @@ var grouped = people.GroupBy(p => p.Age)
 
 foreach (var group in grouped)
     Console.WriteLine($"{group.Age}: {group.Count}");
-4. What's wrong with this LINQ code?
-
+```
+## What's wrong with this LINQ code?
+```
 var result = someList.Select(async item => await SomeAsyncMethod(item)).ToList();
 ```
 Trick: Looks fine, but it doesn't do what people expect.
 
-Answer:
+
 This gives a List<Task<T>>, not List<T>. You must await them:
 
-
+```
 var result = await Task.WhenAll(someList.Select(item => SomeAsyncMethod(item)));
-🚀 Tricky async/await Questions
-1. What will this output?
+```
+## 🚀 Tricky async/await Questions
+## What will this output?
 
+```
 async Task<int> GetNumber() => 42;
 
 void Main()
@@ -218,89 +221,79 @@ void Main()
     var result = GetNumber();
     Console.WriteLine(result.Result);
 }
+```
 Trick: Looks safe, but...
 
-Answer:
 This can cause a deadlock in UI environments like WinForms/WPF due to sync context. Safer to use:
 
 
 await GetNumber(); // inside an async method
-2. What’s the difference between Task, Task<T>, and async void?
-Type	Return Value	Awaitable	Exception Handling	Use Case
-Task	No	✅	✅ (catchable)	Async methods with no result
-Task<T>	Yes	✅	✅ (catchable)	Async methods with a result
-async void	No	❌	❌ (hard to catch errors)	Event handlers only
 
-3. What happens if you await the same task twice?
+## What’s the difference between Task, Task<T>, and async void?
+| Type       | Return Value | Awaitable | Exception Handling        | Use Case                      |
+|------------|--------------|-----------|---------------------------|-------------------------------|
+| `Task`     | No           | ✅         | ✅ (catchable)             | Async methods with no result  |
+| `Task<T>`  | Yes          | ✅         | ✅ (catchable)             | Async methods with a result   |
+| `async void` | No        | ❌         | ❌ (hard to catch errors)  | Event handlers only           |
 
+
+## What happens if you await the same task twice?
+```
 Task<int> t = SomeAsyncMethod();
 int a = await t;
 int b = await t;
-Answer:
+```
 This is fine — a completed task can be awaited multiple times. The result is reused.
 
-4. Is this async method truly asynchronous?
-
+## Is this async method truly asynchronous?
+```
 public async Task<int> FakeAsync()
 {
     return 42;
 }
-Answer:
+```
 No. It's marked async, but doesn’t actually await anything — it executes synchronously.
 
 Better to write:
-
-
+```
 public Task<int> FakeAsync() => Task.FromResult(42);
-5. What does ConfigureAwait(false) do? Why use it?
-Answer:
+```
+## What does ConfigureAwait(false) do? Why use it?
+
 It tells the await to not capture the current synchronization context (like UI thread).
 
 Use in library code to avoid deadlocks and unnecessary context switching.
 
 Not needed in ASP.NET Core (no sync context), but still good practice in libraries.
 
-Would you like a few multiple-choice or real-world case-based questions too (e.g., LINQ performance traps or async in APIs)?
-
-
-
-
-You said:
-yes
-
-
-ChatGPT said:
-Awesome! Below are real-world, multiple-choice, and performance-based tricky questions for C# LINQ and async/await. These are the kinds of questions interviewers use to test beyond textbook knowledge.
-
-🎯 Multiple-Choice LINQ Questions (Real-World)
-Q1. What will be the output?
-csharp
-Copy
-Edit
+## 🎯 Multiple-Choice LINQ Questions (Real-World)
+## What will be the output?
+```
 var list = new List<string> { "apple", "banana", "apricot", "blueberry" };
 var result = list.Where(s => s.StartsWith("a")).OrderByDescending(s => s.Length).FirstOrDefault();
 Console.WriteLine(result);
-A. apple
-B. apricot
-C. banana
-D. blueberry
+```
+A. apple  
+B. apricot  
+C. banana  
+D. blueberry  
 
 ✅ Correct Answer: B. apricot
 Why: Starts with "a", and OrderByDescending(s.Length) makes "apricot" first.
 
-Q2. Which statement about Select() vs SelectMany() is TRUE?
-A. Both return the same structure always
-B. Select() flattens nested sequences
-C. SelectMany() flattens nested sequences
-D. SelectMany() is slower than Select()
+## Which statement about Select() vs SelectMany() is TRUE?
+A. Both return the same structure always  
+B. Select() flattens nested sequences  
+C. SelectMany() flattens nested sequences  
+D. SelectMany() is slower than Select()  
 
 ✅ Correct Answer: C. SelectMany() flattens nested sequences
 
-Q3. Which LINQ method is best for avoiding multiple enumerations in a performance-critical loop?
-A. ToList()
-B. Select()
-C. Where()
-D. Aggregate()
+## Which LINQ method is best for avoiding multiple enumerations in a performance-critical loop?
+A. ToList()  
+B. Select()  
+C. Where()  
+D. Aggregate()  
 
 ✅ Correct Answer: A. ToList()
 
