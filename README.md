@@ -655,6 +655,362 @@ These questions test deep understanding of:
 
 Would you like me to cover more advanced topics like dependency injection, ref structs, or pattern matching?
 
+Classes and Methods in C#
+Types of Classes in C#
+C# provides several types of classes, each serving different purposes:
+
+1. Regular (Concrete) Classes
+Standard classes that can be instantiated
+
+Can contain fields, properties, methods, events, etc.
+
+Can inherit from other classes (single inheritance)
+
+csharp
+public class Person
+{
+    public string Name { get; set; }
+    public void Greet() => Console.WriteLine($"Hello, {Name}");
+}
+2. Abstract Classes
+Cannot be instantiated directly
+
+Designed to be inherited by other classes
+
+Can contain both implemented and abstract (unimplemented) members
+
+csharp
+public abstract class Shape
+{
+    public abstract double CalculateArea();
+    
+    public void Display()
+    {
+        Console.WriteLine($"Area: {CalculateArea()}");
+    }
+}
+3. Static Classes
+Cannot be instantiated
+
+Contains only static members
+
+Often used for utility functions
+
+csharp
+public static class MathHelper
+{
+    public static double Square(double num) => num * num;
+}
+4. Sealed Classes
+Cannot be inherited
+
+Prevents other classes from deriving from it
+
+csharp
+public sealed class Configuration
+{
+    // Implementation
+}
+5. Partial Classes
+Class definition can be split across multiple files
+
+Useful for separating generated code from hand-written code
+
+csharp
+// File1.cs
+public partial class Employee
+{
+    public void Work() { /* ... */ }
+}
+
+// File2.cs
+public partial class Employee
+{
+    public void TakeBreak() { /* ... */ }
+}
+6. Generic Classes
+Classes that can work with different data types
+
+Type is specified when the class is instantiated
+
+csharp
+public class GenericList<T>
+{
+    private List<T> items = new List<T>();
+    public void Add(T item) => items.Add(item);
+}
+Types of Methods in C#
+1. Instance Methods
+Belong to an object instance
+
+Can access instance members
+
+csharp
+public class Calculator
+{
+    public int Add(int a, int b) => a + b;
+}
+2. Static Methods
+Belong to the class itself, not instances
+
+Called using the class name
+
+csharp
+public class MathOperations
+{
+    public static int Multiply(int a, int b) => a * b;
+}
+3. Abstract Methods
+Declared in abstract classes
+
+No implementation (must be overridden in derived classes)
+
+csharp
+public abstract class Animal
+{
+    public abstract void MakeSound();
+}
+4. Virtual Methods
+Can be overridden in derived classes
+
+Have a base implementation
+
+csharp
+public class Vehicle
+{
+    public virtual void Start() => Console.WriteLine("Vehicle started");
+}
+5. Override Methods
+Override virtual or abstract methods from base class
+
+csharp
+public class Car : Vehicle
+{
+    public override void Start() => Console.WriteLine("Car engine started");
+}
+6. Sealed Methods
+Prevent further overriding in derived classes
+
+Must be used with override keyword
+
+csharp
+public class SportsCar : Car
+{
+    public sealed override void Start() => Console.WriteLine("Sports car started");
+}
+7. Extension Methods
+Static methods that appear to be instance methods
+
+Extend existing types without modifying them
+
+csharp
+public static class StringExtensions
+{
+    public static bool IsNullOrEmpty(this string str) => string.IsNullOrEmpty(str);
+}
+8. Async Methods
+Marked with async keyword
+
+Can use await for asynchronous operations
+
+csharp
+public async Task<string> DownloadContentAsync(string url)
+{
+    using var client = new HttpClient();
+    return await client.GetStringAsync(url);
+}
+9. Partial Methods
+Split implementation across partial class definitions
+
+Must return void
+
+If not implemented, compiler removes the calls
+
+csharp
+public partial class DataProcessor
+{
+    partial void ValidateData();
+    
+    public void Process()
+    {
+        ValidateData();
+        // Processing
+    }
+}
+
+public partial class DataProcessor
+{
+    partial void ValidateData() => Console.WriteLine("Validating...");
+}
+Each type of class and method serves specific purposes in C# programming, allowing for flexible and maintainable code organization.
+
+constructor and destructor is also methods in c#
+Constructors and Destructors in C#
+Constructors and destructors are special types of methods in C# that handle object initialization and cleanup, respectively.
+
+Constructors
+Constructors are special methods that are called when an object is created. They have the same name as the class and don't have a return type.
+
+Types of Constructors:
+Default Constructor
+
+Provided automatically if no constructors are defined
+
+Takes no parameters
+
+Initializes fields to default values
+
+csharp
+public class Person
+{
+    // Default constructor (implicit if none defined)
+    public Person() { }
+}
+Parameterized Constructor
+
+Accepts parameters to initialize object with specific values
+
+csharp
+public class Person
+{
+    public string Name { get; set; }
+    
+    public Person(string name)
+    {
+        Name = name;
+    }
+}
+Static Constructor
+
+Initializes static members of a class
+
+Called automatically before any static members are accessed
+
+No access modifiers or parameters
+
+csharp
+public class Logger
+{
+    static Logger()
+    {
+        Console.WriteLine("Static constructor called");
+    }
+}
+Private Constructor
+
+Used to prevent instantiation of a class
+
+Common in singleton pattern
+
+csharp
+public class Singleton
+{
+    private static Singleton _instance;
+    
+    private Singleton() { }
+    
+    public static Singleton Instance => _instance ??= new Singleton();
+}
+Copy Constructor
+
+Creates an object by copying values from another object
+
+csharp
+public class Person
+{
+    public string Name { get; set; }
+    
+    public Person(Person otherPerson)
+    {
+        Name = otherPerson.Name;
+    }
+}
+Constructor Chaining
+
+One constructor calls another using this keyword
+
+csharp
+public class Rectangle
+{
+    public int Width { get; set; }
+    public int Height { get; set; }
+    
+    public Rectangle() : this(0, 0) { }
+    
+    public Rectangle(int width, int height)
+    {
+        Width = width;
+        Height = height;
+    }
+}
+Destructors (Finalizers)
+Destructors (also called finalizers) are special methods that are called when an object is being garbage collected. They are used to perform cleanup operations.
+
+Key Points About Destructors:
+Defined with a tilde (~) followed by the class name
+
+Cannot be called explicitly - invoked automatically by garbage collector
+
+Cannot have parameters or access modifiers
+
+Should only be used when necessary (for unmanaged resources)
+
+Implementation is generally preferred using IDisposable pattern
+
+csharp
+public class ResourceHolder
+{
+    // Destructor (Finalizer)
+    ~ResourceHolder()
+    {
+        // Cleanup unmanaged resources
+        Console.WriteLine("Destructor called");
+    }
+}
+Better Alternative: IDisposable Pattern
+For proper resource cleanup, implementing IDisposable is recommended over destructors:
+
+csharp
+public class ResourceHolder : IDisposable
+{
+    private bool disposed = false;
+    
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+    
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!disposed)
+        {
+            if (disposing)
+            {
+                // Dispose managed resources
+            }
+            
+            // Dispose unmanaged resources
+            disposed = true;
+        }
+    }
+    
+    ~ResourceHolder()
+    {
+        Dispose(false);
+    }
+}
+Important Differences:
+Feature	Constructor	Destructor
+When called	Object creation	Garbage collection
+Syntax	ClassName()	~ClassName()
+Can be called	Explicitly via new	Only by GC
+Parameters	Can have parameters	No parameters
+Overloading	Possible	Not possible
+Inheritance	Not inherited	Not inherited
+Execution	Deterministic	Non-deterministic
+
+
 # ASP.NET & ASP.NET MVC
 MVC here — covering routing, controllers, views, model binding, filters, and Razor syntax for dynamic web applications.
 
