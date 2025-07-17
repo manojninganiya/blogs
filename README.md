@@ -94,27 +94,31 @@ null
 Because Print() is called from base constructor, and message is not yet set.
 
 ## Can a constructor be virtual in C#?
-Answer:
+
 No. Constructors cannot be virtual, abstract, or override.
 
 ## Can you override a static method in C#?
-Answer:
+
 No. Static methods belong to the type, not an instance — hence, they cannot be overridden.
 
 ## What is the output of this code?
 
+```
 int a = 5;
 object o = a;
 a = 10;
 Console.WriteLine(o);
-Answer:
+```
+
 5 — Because o is boxed with value 5, and a is modified afterward.
 
 ## What's the difference between ref, out, and in parameters?
-Keyword	Must be initialized before passing?	Can be modified inside method?	Must be assigned in method?
-ref	Yes	Yes	No
-out	No	Yes	Yes
-in	Yes	No	No
+| Keyword | Must be initialized before passing? | Can be modified inside method? | Must be assigned in method? |
+|---------|--------------------------------------|--------------------------------|-----------------------------|
+| `ref`   | Yes                                  | Yes                            | No                          |
+| `out`   | No                                   | Yes                            | Yes                         |
+| `in`    | Yes                                  | No                             | No                          |
+
 
 ## Is string a reference type or value type? Can it behave like a value type?
 Answer:
