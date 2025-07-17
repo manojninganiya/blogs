@@ -69,7 +69,8 @@ Console.WriteLine(ReferenceEquals(a, b)); // False
 
 ## What will this output?
 
-```class A
+```
+class A
 {
     public A() { Print(); }
     public virtual void Print() => Console.WriteLine("A");
