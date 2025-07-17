@@ -168,9 +168,11 @@ foreach (var n in query)
 }
 ```
 
+```
 2
 4
 6
+```
 Why?
 Because LINQ uses deferred execution. The Where clause is not executed until the enumeration (foreach) happens.
 
