@@ -71,6 +71,7 @@ Console.WriteLine(s.Length); // ❌ Throws NullReferenceException
 
 Here, `s` is `null`, so trying to access `s.Length` triggers a `NullReferenceException`.
 
+---
 ### Why does `string.Replace()` not modify the original string?
 
 Many developers expect it to behave like array or list operations, which modify data in-place. But strings in C# don’t work that way.
@@ -86,6 +87,7 @@ string s2 = s1.Replace("H", "J"); // Creates a new string "Jello"
 Console.WriteLine(s1); // Output: Hello (original unchanged)
 Console.WriteLine(s2); // Output: Jello (new string)
 ```
+---
 ### Why is this code inefficient?
 
 ```
@@ -99,6 +101,7 @@ Unboxing converts back (type check + copy).
 
 Performance impact: Extra memory and CPU overhead.
 
+---
 ### Does `await` make the calling thread wait?
 
 Many developers think `await` blocks the thread, like synchronous code — but that's a misunderstanding.
@@ -117,6 +120,7 @@ async Task DoWorkAsync()
     Console.WriteLine("Done"); // Resumes here after delay
 }
 ```
+---
 
 # ASP.NET & ASP.NET MVC
 MVC here — covering routing, controllers, views, model binding, filters, and Razor syntax for dynamic web applications.
