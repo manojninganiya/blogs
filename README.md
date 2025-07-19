@@ -121,6 +121,86 @@ async Task DoWorkAsync()
 }
 ```
 ---
+### Why do we need **events** when we already have **delegates** in C#?
+
+Developers often think delegates and events are interchangeable. But events offer an **encapsulation benefit** that delegates alone lack.
+
+---
+
+- A **delegate** is a type that represents a reference to a method.
+- An **event** wraps a delegate to provide **encapsulation and restricted access**.
+
+---
+
+### 🔐 Key Difference:
+
+| Feature          | Delegate                          | Event                                      |
+|------------------|-----------------------------------|---------------------------------------------|
+| Invocation       | Anyone with access can invoke it  | Only the **declaring class** can invoke it |
+| Subscription     | Public can subscribe/unsubscribe  | Public can subscribe/unsubscribe            |
+| Use case         | General method references         | Encapsulated, safe **notifications**        |
+
+---
+
+### 🧪 Full Example:
+
+```
+using System;
+
+public delegate void Notify();
+
+public class Publisher
+{
+    // ❌ Public delegate (not safe)
+    public Notify myDelegate;
+
+    // ✅ Public event (safe)
+    public event Notify OnCompleted;
+
+    public void DoWork()
+    {
+        Console.WriteLine("Doing work...");
+
+        // Invoke delegate directly (unsafe, can be misused externally)
+        myDelegate?.Invoke();
+
+        // Invoke event (only allowed here — not from outside this class)
+        OnCompleted?.Invoke();
+    }
+}
+
+public class Subscriber
+{
+    public void Handler()
+    {
+        Console.WriteLine("Work completed!");
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        Publisher publisher = new Publisher();
+        Subscriber subscriber = new Subscriber();
+
+        // ❗ External access — delegate can be overwritten!
+        publisher.myDelegate = subscriber.Handler; // Also allows removal or replacement
+
+        // ✅ Event — allows only += / -= (subscription), not reassignment or invocation
+        publisher.OnCompleted += subscriber.Handler;
+
+        publisher.DoWork();
+
+        // ❌ The following is legal for delegate:
+        publisher.myDelegate(); // Unsafe — external code can invoke it
+
+        // ❌ The following is illegal for event:
+        // publisher.OnCompleted(); // ❌ Compile-time error: cannot invoke event from outside
+    }
+}
+```
+---
 
 # ASP.NET & ASP.NET MVC
 MVC here — covering routing, controllers, views, model binding, filters, and Razor syntax for dynamic web applications.
