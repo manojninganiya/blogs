@@ -195,6 +195,66 @@ public class Program
 }
 ```
 ---
+### Will this object be garbage collected?
+
+```csharp
+class Test {
+    static void Main() {
+        var obj = new LargeObject();
+        obj = null;
+
+        GC.Collect(); // Suggests GC run
+        // Is obj collected here?
+    }
+}
+```
+
+Setting `obj = null` makes the object **eligible for garbage collection**, but **it is not guaranteed** to be collected immediately.
+
+The .NET **Garbage Collector (GC)** is **non-deterministic**:
+- It decides **when** to collect memory based on internal heuristics.
+- Calling `GC.Collect()` only **suggests** a collection — it doesn’t force immediate cleanup.
+
+
+### To ensure finalizers run:
+
+If the object has a **finalizer (`~LargeObject()`)**, you can explicitly wait for it:
+
+```csharp
+GC.Collect();
+GC.WaitForPendingFinalizers();
+```
+
+- `GC.Collect()` suggests collection.
+- `GC.WaitForPendingFinalizers()` blocks until all finalizers are complete.
+
+### Deterministic Cleanup (Best Practice):
+
+Instead of relying on GC, use `IDisposable` with a `using` block for deterministic resource cleanup:
+
+```csharp
+using (var obj = new LargeObject())
+{
+    // Use the object safely
+} // obj.Dispose() is automatically called here
+```
+
+This approach:
+- Ensures timely cleanup of resources (e.g., file handles, DB connections)
+- Avoids reliance on garbage collection timing
+
+### Summary Table:
+
+| Action                             | Behavior                                     |
+|------------------------------------|----------------------------------------------|
+| `obj = null`                       | Marks object as collectible                  |
+| `GC.Collect()`                     | Suggests GC run (not guaranteed)             |
+| `GC.WaitForPendingFinalizers()`    | Waits for any finalizers to complete         |
+| `using / IDisposable`              | Provides immediate, predictable cleanup      |
+
+###  Tip:
+Avoid relying on `GC.Collect()` in production code.  
+Use `IDisposable` and `using` blocks for managing **unmanaged resources** like files, streams, or database connections.
 
 # ASP.NET & ASP.NET MVC
 MVC here — covering routing, controllers, views, model binding, filters, and Razor syntax for dynamic web applications.
