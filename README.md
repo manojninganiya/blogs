@@ -19,7 +19,7 @@
 ## OOPs Concepts in C#
 Here's a quick mnemonic to remember the 4 main OOP concepts in C# in order:
 
-**_<u>A PIE</u>_** (Abstraction, Polymorphism, Inheritance, Encapsulation)
+<u>**_A PIE_**</u> (Abstraction, Polymorphism, Inheritance, Encapsulation)
 
 
 # ASP.NET & ASP.NET MVC
