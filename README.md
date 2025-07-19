@@ -121,7 +121,7 @@ async Task DoWorkAsync()
 }
 ```
 ---
-### Why do we need **events** when we already have **delegates** in C#?
+### Why do we need `events` when we already have `delegates` in C#?
 
 Developers often think delegates and events are interchangeable. But events offer an **encapsulation benefit** that delegates alone lack.
 
