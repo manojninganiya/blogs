@@ -19,8 +19,45 @@
 ## OOPs Concepts in C#
 Here's a quick mnemonic to remember the 4 main OOP concepts in C# in order:
 
-**_A PIE_** <u>(Abstraction, Polymorphism, Inheritance, Encapsulation)</u>
+**_A PIE_** (Abstraction, Polymorphism, Inheritance, Encapsulation)
 
+1. Abstraction
+Hiding complex details, showing only essentials
+
+Achieved through abstract classes/interfaces
+
+2. Polymorphism
+"Many forms" - same method behaves differently
+
+Method overloading (compile-time)
+
+Method overriding (runtime)
+
+3. Inheritance
+Base class → Derived class relationship
+
+Code reusability through "is-a" relationship
+
+4. Encapsulation
+Bundling data + methods that operate on data
+
+Access control via private/protected/public
+
+Properties (getters/setters) for controlled access
+
+## What's the difference between null and a NullReferenceException?
+Tricky Part: Many think they're the same thing.
+
+null is a valid value indicating no object reference
+
+NullReferenceException occurs when you try to access members of a null reference
+
+```
+string s = null;//null means "no object."
+Console.WriteLine(s.Length); // NullReferenceException
+```
+
+NullReferenceException occurs when you try to access a member (method/property) of a null object.
 
 # ASP.NET & ASP.NET MVC
 MVC here — covering routing, controllers, views, model binding, filters, and Razor syntax for dynamic web applications.
