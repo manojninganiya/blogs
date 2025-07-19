@@ -16,34 +16,45 @@
 
 # C# Programming
 
-## OOPs Concepts in C#
+## 4 Pillars of Object-Oriented Programming (OOP) in C#
 Here's a quick mnemonic to remember the 4 main OOP concepts in C# in order:
 
 **_A PIE_** (Abstraction, Polymorphism, Inheritance, Encapsulation)
 
-1. Abstraction
-Hiding complex details, showing only essentials
+---
 
-Achieved through abstract classes/interfaces
+### 1. **Abstraction**
+- Hides complex implementation details
+- Shows only the **essential features**
+- Achieved through:
+  - **Abstract classes**
+  - **Interfaces**
 
-2. Polymorphism
-"Many forms" - same method behaves differently
+---
 
-Method overloading (compile-time)
+### 2. **Polymorphism**
+- "Many forms" – same method behaves differently
+- Types:
+  - **Method Overloading** (Compile-time polymorphism)
+  - **Method Overriding** (Runtime polymorphism)
 
-Method overriding (runtime)
+---
 
-3. Inheritance
-Base class → Derived class relationship
+### 3. **Inheritance**
+- Defines a **base class → derived class** relationship
+- Promotes **code reusability**
+- Based on **"is-a"** relationship
 
-Code reusability through "is-a" relationship
+---
 
-4. Encapsulation
-Bundling data + methods that operate on data
+### 4. **Encapsulation**
+- Bundles **data** and **methods** that operate on it
+- Controls access using:
+  - `private`, `protected`, `public` modifiers
+  - **Properties** (`get`/`set`) for controlled access
 
-Access control via private/protected/public
+---
 
-Properties (getters/setters) for controlled access
 
 ### What's the difference between `null` and a `NullReferenceException` ?
 Many people think they’re the same — but they’re not.
