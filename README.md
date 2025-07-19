@@ -75,6 +75,18 @@ string s2 = s1.Replace("H", "J"); // Creates a new string "Jello"
 Console.WriteLine(s1); // Output: Hello (original unchanged)
 Console.WriteLine(s2); // Output: Jello (new string)
 ```
+### Why is this code inefficient?
+
+```
+int num = 10;
+object boxed = num;            // Boxing (heap allocation)
+int unboxed = (int)boxed;      // Unboxing (type check + copy)
+
+Boxing converts a value type to object (heap allocation).
+
+Unboxing converts back (type check + copy).
+
+Performance impact: Extra memory and CPU overhead.
 
 # ASP.NET & ASP.NET MVC
 MVC here — covering routing, controllers, views, model binding, filters, and Razor syntax for dynamic web applications.
