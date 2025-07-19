@@ -48,7 +48,7 @@ Properties (getters/setters) for controlled access
 ## What's the difference between `null` and a `NullReferenceException` ?
 Many people think they’re the same — but they’re not.
 
-`null`: A valid value in C# that means "no object reference."
+`null`: A **valid value** in C# that means **"no object reference."**
 It’s often used to indicate the absence of a value or an uninitialized object.
 
 `NullReferenceException`: A runtime exception that occurs when you try to access a member (property, method, etc.) on a null reference.
