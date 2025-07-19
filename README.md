@@ -60,6 +60,22 @@ Console.WriteLine(s.Length); // ❌ Throws NullReferenceException
 
 Here, `s` is `null`, so trying to access `s.Length` triggers a `NullReferenceException`.
 
+### Why does `string.Replace()` not modify the original string?
+
+Many developers expect it to behave like array or list operations, which modify data in-place. But strings in C# don’t work that way.
+
+**Strings are immutable** in C# — meaning once a string is created, its value **cannot be changed**.
+
+Methods like `.Replace()`, `.ToUpper()`, `.Trim()`, etc., always return a **new string** and leave the original string unchanged.
+
+```
+string s1 = "Hello";
+string s2 = s1.Replace("H", "J"); // Creates a new string "Jello"
+
+Console.WriteLine(s1); // Output: Hello (original unchanged)
+Console.WriteLine(s2); // Output: Jello (new string)
+```
+
 # ASP.NET & ASP.NET MVC
 MVC here — covering routing, controllers, views, model binding, filters, and Razor syntax for dynamic web applications.
 
