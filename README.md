@@ -102,6 +102,52 @@ Unboxing converts back (type check + copy).
 Performance impact: Extra memory and CPU overhead.
 
 ---
+### Can value types ever be allocated on the heap?
+
+Many believe value types **always live on the stack** — that's incorrect.
+
+**Yes**, value types **can be allocated on the heap** in certain scenarios.
+
+---
+
+### When do value types go on the heap?
+
+1. **Boxing**
+
+   ```csharp
+   int x = 10;           // Stored on the stack (typically)
+   object boxed = x;     // x is boxed and moved to the heap
+   ```
+
+   - Boxing wraps a value type in an `object`, causing **heap allocation**.
+
+2. **Fields inside reference types**
+
+   ```csharp
+   class MyClass {
+       public int Y; // Stored on the heap as part of MyClass instance
+   }
+
+   var obj = new MyClass();
+   ```
+
+   - `Y` is a value type field, but it's stored on the heap **within the object**.
+
+### Summary:
+
+| Context                                | Where Value Type Is Stored |
+|----------------------------------------|-----------------------------|
+| Local variable (e.g., `int x`)         | Stack (usually)             |
+| Boxed into `object`                    | Heap                        |
+| Field in a reference type (`class`)    | Heap (as part of object)    |
+| Captured in a closure/lambda           | Heap                        |
+
+###  Important:
+- Value types are **usually** on the **stack**, but that’s not always the case.
+- The **lifetime and storage** depend on **how they are used**, not just their type.
+
+---
+
 ### Does `await` make the calling thread wait?
 
 Many developers think `await` blocks the thread, like synchronous code — but that's a misunderstanding.
