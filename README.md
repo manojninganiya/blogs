@@ -88,6 +88,25 @@ Unboxing converts back (type check + copy).
 
 Performance impact: Extra memory and CPU overhead.
 
+### Does `await` make the calling thread wait?
+
+Many developers think `await` blocks the thread, like synchronous code — but that's a misunderstanding.
+
+**No, `await` does not block the calling thread.**
+
+When an `await` is encountered, the current method:
+- **Yields control** back to the calling context
+- **Releases the thread** to do other work
+- **Resumes** the continuation when the awaited task completes
+
+```
+async Task DoWorkAsync()
+{
+    await Task.Delay(1000); // Thread is released during this delay
+    Console.WriteLine("Done"); // Resumes here after delay
+}
+```
+
 # ASP.NET & ASP.NET MVC
 MVC here — covering routing, controllers, views, model binding, filters, and Razor syntax for dynamic web applications.
 
