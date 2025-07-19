@@ -45,7 +45,7 @@ Access control via private/protected/public
 
 Properties (getters/setters) for controlled access
 
-## What's the difference between `null` and a `NullReferenceException`?
+## What's the difference between `null` and a `NullReferenceException` ?
 Many people think they’re the same — but they’re not.
 
 `null`: A valid value in C# that means "no object reference."
@@ -58,7 +58,7 @@ string s = null;        // null means "s" doesn't refer to any object
 Console.WriteLine(s.Length); // ❌ Throws NullReferenceException
 ```
 
-Here, s is null, so trying to access s.Length triggers a NullReferenceException.
+Here, `s` is `null`, so trying to access `s.Length` triggers a `NullReferenceException`.
 
 # ASP.NET & ASP.NET MVC
 MVC here — covering routing, controllers, views, model binding, filters, and Razor syntax for dynamic web applications.
