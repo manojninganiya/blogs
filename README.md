@@ -81,7 +81,7 @@ Console.WriteLine(s2); // Output: Jello (new string)
 int num = 10;
 object boxed = num;            // Boxing (heap allocation)
 int unboxed = (int)boxed;      // Unboxing (type check + copy)
-
+```
 Boxing converts a value type to object (heap allocation).
 
 Unboxing converts back (type check + copy).
