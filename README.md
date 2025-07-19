@@ -125,12 +125,8 @@ async Task DoWorkAsync()
 
 Developers often think delegates and events are interchangeable. But events offer an **encapsulation benefit** that delegates alone lack.
 
----
-
 - A **delegate** is a type that represents a reference to a method.
 - An **event** wraps a delegate to provide **encapsulation and restricted access**.
-
----
 
 ### 🔐 Key Difference:
 
@@ -140,9 +136,7 @@ Developers often think delegates and events are interchangeable. But events offe
 | Subscription     | Public can subscribe/unsubscribe  | Public can subscribe/unsubscribe            |
 | Use case         | General method references         | Encapsulated, safe **notifications**        |
 
----
-
-### 🧪 Full Example:
+### Example:
 
 ```
 using System;
